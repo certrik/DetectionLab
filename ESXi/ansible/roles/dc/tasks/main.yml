@@ -79,35 +79,35 @@
 
 - debug: msg="{{ wef_gpo.stdout_lines }}"
 
-- name: Configure Powershell Logging GPO
-  win_shell: .\\configure-powershelllogging.ps1
-  args:
-    chdir: 'c:\vagrant\scripts'
-  register: powershell_gpo
-  vars:
-    ansible_become: yes
-    ansible_become_method: runas
-    ansible_become_user: windomain.local\vagrant
-    ansible_become_password: vagrant
-    ansible_become_flags: logon_type=new_credentials logon_flags=netcredentials_only
-  failed_when: "'Exception' in powershell_gpo.stderr"
+#- name: Configure Powershell Logging GPO
+#  win_shell: .\\configure-powershelllogging.ps1
+#  args:
+#    chdir: 'c:\vagrant\scripts'
+#  register: powershell_gpo
+#  vars:
+#    ansible_become: yes
+#    ansible_become_method: runas
+#    ansible_become_user: windomain.local\vagrant
+#    ansible_become_password: vagrant
+#    ansible_become_flags: logon_type=new_credentials logon_flags=netcredentials_only
+#  failed_when: "'Exception' in powershell_gpo.stderr"
 
-- debug: msg="{{ powershell_gpo.stdout_lines }}"
+#- debug: msg="{{ powershell_gpo.stdout_lines }}"
 
-- name: Configure Auditing Policy GPO
-  win_shell: .\\configure-AuditingPolicyGPOs.ps1
-  args:
-    chdir: 'c:\vagrant\scripts'
-  register: audit_policy
-  vars:
-    ansible_become: yes
-    ansible_become_method: runas
-    ansible_become_user: windomain.local\vagrant
-    ansible_become_password: vagrant
-    ansible_become_flags: logon_type=new_credentials logon_flags=netcredentials_only
-  failed_when: "'Exception' in audit_policy.stderr"
+#- name: Configure Auditing Policy GPO
+#  win_shell: .\\configure-AuditingPolicyGPOs.ps1
+#  args:
+#    chdir: 'c:\vagrant\scripts'
+#  register: audit_policy
+#  vars:
+#    ansible_become: yes
+#    ansible_become_method: runas
+#    ansible_become_user: windomain.local\vagrant
+#    ansible_become_password: vagrant
+#    ansible_become_flags: logon_type=new_credentials logon_flags=netcredentials_only
+#  failed_when: "'Exception' in audit_policy.stderr"
 
-- debug: msg="{{ audit_policy.stdout_lines }}"
+#- debug: msg="{{ audit_policy.stdout_lines }}"
 
 - name: Disable Windows Defender GPO
   win_shell: .\\configure-disable-windows-defender-gpo.ps1
@@ -124,20 +124,20 @@
 
 - debug: msg="{{ disable_win_def.stdout_lines }}"
 
-- name: Configure RDP Permissions GPO
-  win_shell: .\\configure-rdp-user-gpo.ps1
-  args:
-    chdir: 'c:\vagrant\scripts'
-  register: rdp_gpo
-  vars:
-    ansible_become: yes
-    ansible_become_method: runas
-    ansible_become_user: windomain.local\vagrant
-    ansible_become_password: vagrant
-    ansible_become_flags: logon_type=new_credentials logon_flags=netcredentials_only
-  failed_when: "'Exception' in rdp_gpo.stderr"
+#- name: Configure RDP Permissions GPO
+#  win_shell: .\\configure-rdp-user-gpo.ps1
+#  args:
+#    chdir: 'c:\vagrant\scripts'
+#  register: rdp_gpo
+#  vars:
+#    ansible_become: yes
+#    ansible_become_method: runas
+#    ansible_become_user: windomain.local\vagrant
+#    ansible_become_password: vagrant
+#    ansible_become_flags: logon_type=new_credentials logon_flags=netcredentials_only
+#  failed_when: "'Exception' in rdp_gpo.stderr"
 
-- debug: msg="{{ rdp_gpo.stdout_lines }}"
+#- debug: msg="{{ rdp_gpo.stdout_lines }}"
 
 - name: Configure DC with raw Commands
   win_shell: "{{ item }}"
