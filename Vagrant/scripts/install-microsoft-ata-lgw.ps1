@@ -1,25 +1,3 @@
-# Enable web requests to endpoints with invalid SSL certs (like self-signed certs)
-if (-not("SSLValidator" -as [type])) {
-    add-type -TypeDefinition @"
-using System;
-using System.Net;
-using System.Net.Security;
-using System.Security.Cryptography.X509Certificates;
-
-public static class SSLValidator {
-    public static bool ReturnTrue(object sender,
-        X509Certificate certificate,
-        X509Chain chain,
-        SslPolicyErrors sslPolicyErrors) { return true; }
-
-    public static RemoteCertificateValidationCallback GetDelegate() {
-        return new RemoteCertificateValidationCallback(SSLValidator.ReturnTrue);
-    }
-}
-"@
-}
-[System.Net.ServicePointManager]::ServerCertificateValidationCallback = [SSLValidator]::GetDelegate()
-
 Start-Sleep -Seconds 60
 
 Invoke-Command -computername dc -Credential (new-object pscredential("windomain\vagrant",(ConvertTo-SecureString -AsPlainText -Force -String "vagrant"))) -ScriptBlock {
@@ -79,6 +57,28 @@ Invoke-Command -computername dc -Credential (new-object pscredential("windomain\
     [System.Net.ServicePointManager]::ServerCertificateValidationCallback = $null
 }
 
+# Enable web requests to endpoints with invalid SSL certs (like self-signed certs)
+if (-not("SSLValidator" -as [type])) {
+    add-type -TypeDefinition @"
+using System;
+using System.Net;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
+
+public static class SSLValidator {
+    public static bool ReturnTrue(object sender,
+        X509Certificate certificate,
+        X509Chain chain,
+        SslPolicyErrors sslPolicyErrors) { return true; }
+
+    public static RemoteCertificateValidationCallback GetDelegate() {
+        return new RemoteCertificateValidationCallback(SSLValidator.ReturnTrue);
+    }
+}
+"@
+}
+[System.Net.ServicePointManager]::ServerCertificateValidationCallback = [SSLValidator]::GetDelegate()
+
 # set DC as domain synchronizer
 $config = Invoke-RestMethod -Uri "https://localhost/api/management/systemProfiles/gateways" -UseDefaultCredentials -UseBasicParsing
 $config[0].Configuration.DirectoryServicesResolverConfiguration.UpdateDirectoryEntityChangesConfiguration.IsEnabled = $true
@@ -87,8 +87,3 @@ Invoke-RestMethod -Uri "https://localhost/api/management/systemProfiles/gateways
 
 # Disable invalid web requests to endpoints with invalid SSL certs again
 [System.Net.ServicePointManager]::ServerCertificateValidationCallback = $null
-
-If ((Get-Service -name "ATACenter").Status -ne "Running")
-{
-    throw "MS ATA service was not running."
-}

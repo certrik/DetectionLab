@@ -1,8 +1,8 @@
 ---
-- hosts: logger
-  roles:
-    - logger
-  tags: logger
+#- hosts: logger
+#  roles:
+#    - logger
+#  tags: logger
 
 - hosts: dc
   roles:
@@ -16,8 +16,8 @@
     - common
   tags: wef
 
-- hosts: win10
-  roles:
-    - win10
-    - common
-  tags: win10
+#- hosts: win10
+#  roles:
+#    - win10
+#    - common
+#  tags: win10
