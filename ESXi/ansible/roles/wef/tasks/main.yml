@@ -61,69 +61,59 @@
 - name: Clear Event Logs
   win_shell: "wevtutil el | Select-String -notmatch \"Microsoft-Windows-LiveId\" | Foreach-Object {wevtutil cl \"$_\"}"
 
-#- name: Downloading the Palantir WEF Configuration
-#  win_shell: ".\\download_palantir_wef.ps1"
-#  args:
-#    chdir: 'c:\vagrant\scripts'
-#  register: palantir_wef
-#  failed_when: "'Exception' in palantir_wef.stdout"
+- name: Downloading the Palantir WEF Configuration
+  win_shell: ".\\download_palantir_wef.ps1"
+  args:
+    chdir: 'c:\vagrant\scripts'
+  register: palantir_wef
+  failed_when: "'Exception' in palantir_wef.stdout"
 
-#- debug: msg="{{ palantir_wef.stdout_lines }}"
+- debug: msg="{{ palantir_wef.stdout_lines }}"
 
-#- name: Installing WEF Subscriptions
-#  win_shell: ".\\install-wefsubscriptions.ps1"
-#  args:
-#    chdir: 'c:\vagrant\scripts'
-#  register: wef_subscriptions
-#  failed_when: "'Exception' in wef_subscriptions.stdout"
+- name: Installing WEF Subscriptions
+  win_shell: ".\\install-wefsubscriptions.ps1"
+  args:
+    chdir: 'c:\vagrant\scripts'
+  register: wef_subscriptions
+  failed_when: "'Exception' in wef_subscriptions.stdout"
 
-#- debug: msg="{{ wef_subscriptions.stdout_lines }}"
+- debug: msg="{{ wef_subscriptions.stdout_lines }}"
 
-#- name: Installing the Splunk Universal Forwarder
-#  win_shell: ".\\install-splunkuf.ps1"
-#  args:
-#    chdir: 'c:\vagrant\scripts'
-#  register: splunkuf
-#  failed_when: "'Exception' in splunkuf.stdout"
+- name: Installing the Splunk Universal Forwarder
+  win_shell: ".\\install-splunkuf.ps1"
+  args:
+    chdir: 'c:\vagrant\scripts'
+  register: splunkuf
+  failed_when: "'Exception' in splunkuf.stdout"
 
-#- debug: msg="{{ splunkuf.stdout_lines }}"
+- debug: msg="{{ splunkuf.stdout_lines }}"
 
-#- name: Install Splunk Windows TA
-#  win_shell: ".\\install-windows_ta.ps1"
-#  args:
-#    chdir: 'c:\vagrant\scripts'
-#  register: windowsta
-#  failed_when: "'Exception' in windowsta.stdout"
+- name: Install Splunk Windows TA
+  win_shell: ".\\install-windows_ta.ps1"
+  args:
+    chdir: 'c:\vagrant\scripts'
+  register: windowsta
+  failed_when: "'Exception' in windowsta.stdout"
 
-#- debug: msg="{{ windowsta.stdout_lines }}"
+- debug: msg="{{ windowsta.stdout_lines }}"
 
-#- name: Installing the Powershell Log Transcription Share
-#  win_shell: ".\\configure-pslogstranscriptsshare.ps1"
-#  args:
-#    chdir: 'c:\vagrant\scripts'
-#  register: pstranscriptshare
-#  failed_when: "'Exception' in pstranscriptshare.stdout"
+- name: Installing the Powershell Log Transcription Share
+  win_shell: ".\\configure-pslogstranscriptsshare.ps1"
+  args:
+    chdir: 'c:\vagrant\scripts'
+  register: pstranscriptshare
+  failed_when: "'Exception' in pstranscriptshare.stdout"
 
-#- debug: msg="{{ pstranscriptshare.stdout_lines }}"
+- debug: msg="{{ pstranscriptshare.stdout_lines }}"
 
-- name: Installing Microsoft Advanced Threat Analytics Center on WEF
-#  win_shell: ".\\install-microsoft-ata-center.ps1"
+- name: Installing Microsoft Advanced Threat Analytics
   win_shell: ".\\install-microsoft-ata.ps1"
   args:
     chdir: 'c:\vagrant\scripts'
-  register: windowsatacenter
-  failed_when: "'Exception' in windowsatacenter.stdout"
+  register: windowsata
+  failed_when: "'Exception' in windowsata.stdout"
 
-- debug: msg="{{ windowsatacenter.stdout_lines }}"
-
-#- name: Installing Microsoft Advanced Threat Analytics Lightweight Gateway on DC
-#  win_shell: ".\\install-microsoft-ata-lgw.ps1"
-#  args:
-#    chdir: 'c:\vagrant\scripts'
-#  register: windowsatalgw
-#  failed_when: "'Exception' in windowsatalgw.stdout"
-
-#- debug: msg="{{ windowsatalgw.stdout_lines }}"
+- debug: msg="{{ windowsata.stdout_lines }}"
 
 - name: Configure WEF with raw Commands
   win_shell: "{{ item }}"
