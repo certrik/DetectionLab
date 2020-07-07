@@ -107,7 +107,8 @@
 #- debug: msg="{{ pstranscriptshare.stdout_lines }}"
 
 - name: Installing Microsoft Advanced Threat Analytics Center on WEF
-  win_shell: ".\\install-microsoft-ata-center.ps1"
+#  win_shell: ".\\install-microsoft-ata-center.ps1"
+  win_shell: ".\\install-microsoft-ata.ps1"
   args:
     chdir: 'c:\vagrant\scripts'
   register: windowsatacenter
@@ -115,14 +116,14 @@
 
 - debug: msg="{{ windowsatacenter.stdout_lines }}"
 
-- name: Installing Microsoft Advanced Threat Analytics Light Gateway on DC
-  win_shell: ".\\install-microsoft-ata-lgw.ps1"
-  args:
-    chdir: 'c:\vagrant\scripts'
-  register: windowsatalgw
-  failed_when: "'Exception' in windowsatalgw.stdout"
+#- name: Installing Microsoft Advanced Threat Analytics Lightweight Gateway on DC
+#  win_shell: ".\\install-microsoft-ata-lgw.ps1"
+#  args:
+#    chdir: 'c:\vagrant\scripts'
+#  register: windowsatalgw
+#  failed_when: "'Exception' in windowsatalgw.stdout"
 
-- debug: msg="{{ windowsatalgw.stdout_lines }}"
+#- debug: msg="{{ windowsatalgw.stdout_lines }}"
 
 - name: Configure WEF with raw Commands
   win_shell: "{{ item }}"
