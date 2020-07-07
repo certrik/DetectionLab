@@ -67,16 +67,9 @@ if (-not (Test-Path "C:\Program Files\Microsoft Advanced Threat Analytics\Center
     $Mount | Dismount-DiskImage -Confirm:$false
     $body = get-content "C:\vagrant\resources\microsoft_ata\microsoft-ata-config.json"
 
-    $req = [System.Net.WebRequest]::CreateHttp("https://wef")
-    try
-    {
-        $req.GetResponse()
-    }
-    catch
-    {
-        # we don't care about errors here, we just want to get the cert ;)
-    }
-    $ThumbPrint = $req.ServicePoint.Certificate.GetCertHashString()
+    $CertInfo = Get-ChildItem Cert:\LocalMachine\My
+    $ThumbPrint = $CertInfo.Thumbprint
+
     $body = $body -replace "{{THUMBPRINT}}", $ThumbPrint
 
     Invoke-RestMethod -uri https://localhost/api/management/systemProfiles/center -body $body -Method Post -UseBasicParsing -UseDefaultCredentials -ContentType "application/json"
