@@ -40,7 +40,7 @@ Invoke-Command -computername dc -Credential (new-object pscredential("windomain\
     {
         Write-Host "[$env:computername] ATA Gateway not yet installed. Attempting to install now..."
         Set-Location "$env:temp\gatewaysetup"
-        Start-Process -Wait -FilePath ".\Microsoft ATA Gateway Setup.exe" -ArgumentList "/q NetFrameworkCommandLineArguments=`"/q`" ConsoleAccountName=`"wef\vagrant`" ConsoleAccountPassword=`"vagrant`""
+        Start-Process -Wait -FilePath ".\Microsoft ATA Gateway Setup.exe" -verb runAs -ArgumentList "/q NetFrameworkCommandLineArguments=`"/q`" ConsoleAccountName=`"wef\vagrant`" ConsoleAccountPassword=`"vagrant`""
         Write-Host "[$env:computername] ATA Gateway installation complete!"
     }
     else
@@ -48,7 +48,7 @@ Invoke-Command -computername dc -Credential (new-object pscredential("windomain\
         Write-Host "[$env:computername] ATA Gateway already installed. Moving On."
     }
     Write-Host "[$env:computername] Waiting for the ATA Gateway service to start..."
-    (Get-Service ATAGateway).WaitForStatus('Running', '00:10:00')
+    (Get-Service ATAGateway).WaitForStatus('Running', '00:20:00')
     If ((Get-Service "ATAGateway").Status -ne "Running")
     {
         throw "ATA Gateway service failed to start on DC"
