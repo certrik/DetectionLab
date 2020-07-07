@@ -3,25 +3,25 @@
 
 DetectionLab is tested weekly on Saturdays via a scheduled CircleCI workflow to ensure that builds are passing.
 
-[![CircleCI](https://circleci.com/gh/clong/DetectionLab/tree/master.svg?style=shield)](https://circleci.com/gh/clong/DetectionLab/tree/master)
-![Lint Code Base](https://github.com/clong/DetectionLab/workflows/Lint%20Code%20Base/badge.svg)
-[![license](https://img.shields.io/github/license/clong/DetectionLab.svg?style=flat-square)](https://github.com/clong/DetectionLab/blob/master/license.md)
+[![CircleCI](https://circleci.com/gh/certrik/DetectionLab/tree/master.svg?style=shield)](https://circleci.com/gh/certrik/DetectionLab/tree/master)
+![Lint Code Base](https://github.com/certrik/DetectionLab/workflows/Lint%20Code%20Base/badge.svg)
+[![license](https://img.shields.io/github/license/certrik/DetectionLab.svg?style=flat-square)](https://github.com/certrik/DetectionLab/blob/master/license.md)
 ![Maintenance](https://img.shields.io/maintenance/yes/2020.svg?style=flat-square)
-[![GitHub last commit](https://img.shields.io/github/last-commit/clong/DetectionLab.svg?style=flat-square)](https://github.com/clong/DetectionLab/commit/master)
+[![GitHub last commit](https://img.shields.io/github/last-commit/certrik/DetectionLab.svg?style=flat-square)](https://github.com/certrik/DetectionLab/commit/master)
 [![Twitter](https://img.shields.io/twitter/follow/DetectionLab.svg?style=social)](https://twitter.com/DetectionLab)
 
 #### Donate to the project:
 
 All of the infrastructure, building, and testing of DetectionLab is currently funded by myself in my spare time. If you find this project useful, feel free to buy me a coffee using one of the buttons below!
 
-[![GitHub Sponsor](https://img.shields.io/badge/GitHub-Sponsor-red.svg)](https://github.com/sponsors/clong)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/paypalme2/clong0)
+[![GitHub Sponsor](https://img.shields.io/badge/GitHub-Sponsor-red.svg)](https://github.com/sponsors/certrik)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/paypalme2/certrik0)
 [![Donate](https://img.shields.io/badge/Donate-Crypto-blue.svg)](https://commerce.coinbase.com/checkout/838ac7a2-7b9d-4d40-b475-fd1015fdaacd)
 
 ## Purpose
 This lab has been designed with defenders in mind. Its primary purpose is to allow the user to quickly build a Windows domain that comes pre-loaded with security tooling and some best practices when it comes to system logging configurations. It can easily be modified to fit most needs or expanded to include additional hosts.
 
-Read more about Detection Lab on Medium here: https://medium.com/@clong/introducing-detection-lab-61db34bed6ae
+Read more about Detection Lab on Medium here: https://medium.com/@certrik/introducing-detection-lab-61db34bed6ae
 
 NOTE: This lab has not been hardened in any way and runs with default vagrant credentials. Please do not connect or bridge it to any networks you care about. This lab is deliberately designed to be insecure; the primary purpose of it is to provide visibility and introspection into each host.
 
@@ -49,30 +49,30 @@ NOTE: This lab has not been hardened in any way and runs with default vagrant cr
 
 Please view the quickstart guides based on the operating system you are using. The AWS and Azure deployment options for DetectionLab can be launched from any operating system.
 
-* [AWS via Terraform](https://github.com/clong/DetectionLab/wiki/Quickstart---AWS-(Terraform))
-* [Azure via Terraform & Ansible](https://github.com/clong/DetectionLab/tree/master/Azure)
-* [MacOS](https://github.com/clong/DetectionLab/wiki/Quickstart---MacOS)
-* [Windows](https://github.com/clong/DetectionLab/wiki/Quickstart---Windows)
-* [Linux](https://github.com/clong/DetectionLab/wiki/Quickstart-Linux)
-* [ESXi](https://github.com/clong/DetectionLab/tree/master/ESXi)
+* [AWS via Terraform](https://github.com/certrik/DetectionLab/wiki/Quickstart---AWS-(Terraform))
+* [Azure via Terraform & Ansible](https://github.com/certrik/DetectionLab/tree/master/Azure)
+* [MacOS](https://github.com/certrik/DetectionLab/wiki/Quickstart---MacOS)
+* [Windows](https://github.com/certrik/DetectionLab/wiki/Quickstart---Windows)
+* [Linux](https://github.com/certrik/DetectionLab/wiki/Quickstart-Linux)
+* [ESXi](https://github.com/certrik/DetectionLab/tree/master/ESXi)
 
 ---
 
 ## Basic Vagrant Usage
 
-Moved to the wiki: [Basic Vagrant Usage](https://github.com/clong/DetectionLab/wiki/Vagrant-Usage)
+Moved to the wiki: [Basic Vagrant Usage](https://github.com/certrik/DetectionLab/wiki/Vagrant-Usage)
 
 ---
 
 ## Lab Information
 
-Moved to the wiki: [Lab Information & Credentials](https://github.com/clong/DetectionLab/wiki/Lab-Information-&-Credentials)
+Moved to the wiki: [Lab Information & Credentials](https://github.com/certrik/DetectionLab/wiki/Lab-Information-&-Credentials)
 
 ---
 
 ## Known Issues and Workarounds
 
-Moved to the wiki: [Known Issues and Workarounds](https://github.com/clong/DetectionLab/wiki/Known-Issues-and-Workarounds)
+Moved to the wiki: [Known Issues and Workarounds](https://github.com/certrik/DetectionLab/wiki/Known-Issues-and-Workarounds)
 
 ---
 

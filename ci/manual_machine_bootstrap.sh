@@ -20,7 +20,7 @@ ufw allow ssh
 ufw default allow outgoing
 ufw --force enable
 
-git clone https://github.com/clong/DetectionLab.git /opt/DetectionLab
+git clone https://github.com/certrik/DetectionLab.git /opt/DetectionLab
 
 # Install Vagrant
 mkdir /opt/vagrant

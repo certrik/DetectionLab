@@ -1,5 +1,5 @@
 # Building DetectionLab on ESXi
-![Overview](https://github.com/clong/DetectionLab/blob/master/img/esxi_overview.jpeg?raw=true)
+![Overview](https://github.com/certrik/DetectionLab/blob/master/img/esxi_overview.jpeg?raw=true)
 
 NOTE: This is an early release and it's possible that certain features may not work perfectly for everyone yet
 
@@ -30,10 +30,10 @@ NOTE: This is an early release and it's possible that certain features may not w
 
 These commands can be run in parallel from three separate terminal sessions.
 
-![Packer](https://github.com/clong/DetectionLab/blob/master/img/esxi_packer.png?raw=true)
+![Packer](https://github.com/certrik/DetectionLab/blob/master/img/esxi_packer.png?raw=true)
 
 3. **(1 Minute)** Once the Packer builds finish, verify that you now see Windows10, WindowsServer2016, and Ubuntu1804 in your ESXi console
-![Ansible](https://github.com/clong/DetectionLab/blob/master/img/esxi_console.png?raw=true)
+![Ansible](https://github.com/certrik/DetectionLab/blob/master/img/esxi_console.png?raw=true)
 4. **(5 Minutes)** Edit the variables in `ESXi/variables.tf` to match your local ESXi configuration or [create a terraform.tfvars file](https://www.terraform.io/docs/configuration/variables.html#variable-definitions-tfvars-files) (RECOMMENDED) to override them.
 5. **(25 Minutes)** From `DetectionLab/ESXi`, run `terraform init && terraform apply`
 6. Once Terraform has finished bringing the hosts online, change your directory to `DetectionLab/ESXi/Ansible`
@@ -43,7 +43,7 @@ These commands can be run in parallel from three separate terminal sessions.
 10. Change your directory to `DetectionLab/ESXi/Ansible`
 11. **(30 Minutes)** Run `ansible-playbook -vvv detectionlab.yml` 
 12. If all goes well, you should see the following and your lab is complete!
-![Ansible](https://github.com/clong/DetectionLab/blob/master/img/esxi_ansible.png?raw=true)
+![Ansible](https://github.com/certrik/DetectionLab/blob/master/img/esxi_ansible.png?raw=true)
 
 If you run into any issues along the way, please open an issue on Github and I'll do my best to find a solution.
 

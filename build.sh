@@ -5,7 +5,7 @@
 # from the README have already been run followed.
 # Only MacOS and Linux are supported. Use build.ps1 for Windows.
 # If you encounter issues, feel free to open an issue at
-# https://github.com/clong/DetectionLab/issues
+# https://github.com/certrik/DetectionLab/issues
 
 print_usage() {
   echo "Usage: ./build.sh <virtualbox | vmware_desktop>  <--vagrant-only | --packer-only>"
@@ -343,7 +343,7 @@ build_packer_boxes() {
     (echo >&2 "Good news! The windows_10 box was built with Packer successfully!")
   else
     (echo >&2 "Something went wrong while attempting to build the windows_10 box.")
-    (echo >&2 "To file an issue, please visit https://github.com/clong/DetectionLab/issues/")
+    (echo >&2 "To file an issue, please visit https://github.com/certrik/DetectionLab/issues/")
     exit 1
   fi
 elif [ "$(hostname)" == "packerwindows2016" ]; then  # Workaround for CI environment
@@ -353,7 +353,7 @@ if [ "$RET" -eq 0 ]; then
   (echo >&2 "Good news! The windows_2016 box was built with Packer successfully!")
 else
   (echo >&2 "Something went wrong while attempting to build the windows_2016 box.")
-  (echo >&2 "To file an issue, please visit https://github.com/clong/DetectionLab/issues/")
+  (echo >&2 "To file an issue, please visit https://github.com/certrik/DetectionLab/issues/")
   exit 1
 fi
 else
@@ -363,7 +363,7 @@ else
     (echo >&2 "Good news! $PACKER_BOX was built successfully!")
   else
     (echo >&2 "Something went wrong while attempting to build the $PACKER_BOX box.")
-    (echo >&2 "To file an issue, please visit https://github.com/clong/DetectionLab/issues/")
+    (echo >&2 "To file an issue, please visit https://github.com/certrik/DetectionLab/issues/")
     exit 1
   fi
 done

@@ -17,7 +17,7 @@
    running.
 
    If you encounter issues, feel free to open an issue at
-   https://github.com/clong/DetectionLab/issues
+   https://github.com/certrik/DetectionLab/issues
 
 .PARAMETER ProviderName
   The Hypervisor you're using for the lab. Valid options are 'virtualbox' or 'vmware_desktop'
@@ -263,7 +263,7 @@ function packer_build_box {
 
   if ($LASTEXITCODE -ne 0) {
     Write-Error "Something went wrong while attempting to build the $BOX box."
-    Write-Output "To file an issue, please visit https://github.com/clong/DetectionLab/issues/"
+    Write-Output "To file an issue, please visit https://github.com/certrik/DetectionLab/issues/"
     break
   }
   Set-Location $CurrentDir

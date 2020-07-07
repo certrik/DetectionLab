@@ -12,7 +12,7 @@ The supplied Terraform configuration can then be used to create EC2 instances an
 
 ## Step by step guide
 
-1. Build the lab by following the [README](https://github.com/clong/DetectionLab/blob/master/README.md)
+1. Build the lab by following the [README](https://github.com/certrik/DetectionLab/blob/master/README.md)
 2. [Configure the AWS command line utility](https://docs.aws.amazon.com/polly/latest/dg/setup-aws-cli.html)
 3. [Create an S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html). You will upload the DetectionLab VMs to this bucket later.
 

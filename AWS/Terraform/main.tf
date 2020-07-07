@@ -190,7 +190,7 @@ resource "aws_instance" "logger" {
       "sudo adduser --disabled-password --gecos \"\" vagrant && echo 'vagrant:vagrant' | sudo chpasswd",
       "sudo mkdir /home/vagrant/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/vagrant/.ssh/authorized_keys && sudo chown -R vagrant:vagrant /home/vagrant/.ssh",
       "echo 'vagrant    ALL=(ALL:ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers",
-      "sudo git clone https://github.com/clong/DetectionLab.git /opt/DetectionLab",
+      "sudo git clone https://github.com/certrik/DetectionLab.git /opt/DetectionLab",
       "sudo sed -i 's/eth1/ens5/g' /opt/DetectionLab/Vagrant/bootstrap.sh",
       "sudo sed -i 's/ETH1/ens5/g' /opt/DetectionLab/Vagrant/bootstrap.sh",
       "sudo sed -i 's/eth1/ens5/g' /opt/DetectionLab/Vagrant/resources/suricata/suricata.yaml",
