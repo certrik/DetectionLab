@@ -115,6 +115,13 @@
 
 - debug: msg="{{ windowsatacenter.stdout_lines }}"
 
+- name: Reboot After Installing ATA Center on WEF
+  win_reboot:
+    msg: "Joining the domain. Rebooting..."
+    pre_reboot_delay: 15
+    reboot_timeout: 600
+    post_reboot_delay: 180
+
 - name: Installing Microsoft Advanced Threat Analytics Lightweight Gateway on DC
   win_shell: ".\\install-microsoft-ata-lgw.ps1"
   args:
@@ -123,6 +130,15 @@
   failed_when: "'Exception' in windowsatalgw.stdout"
 
 - debug: msg="{{ windowsatalgw.stdout_lines }}"
+
+- name: Installing WinLogbeat
+  win_shell: ".\\install-winlogbeat.ps1"
+  args:
+    chdir: 'c:\vagrant\scripts'
+  register: windowslogbeat
+  failed_when: "'Exception' in windowslogbeat.stdout"
+
+- debug: msg="{{ windowslogbeat.stdout_lines }}"
 
 - name: Configure WEF with raw Commands
   win_shell: "{{ item }}"
